@@ -6,3 +6,6 @@ body {
     color: white;
     background-size: cover;
 }
+.MuiButton-root.MuiButton-contained.Mui-disabled  {
+    background-color:white !important;
+}

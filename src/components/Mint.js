@@ -27,20 +27,31 @@ const Mint = () => {
     const incNum = () => {
         if (count < limit) setCount(count + 1);
     };
+    const getMintedValue = () => {
+        if (contract) {
+            contract.totalSupply().then((val) => {
+                setMinted(ethers.utils.formatUnits(val, 0).toString());
+            });
+        }
+    };
     let contract;
     try {
         contract = GetContract("0x29e95b69011875f2f096b4e89a163885b793309d", abi);
     } catch (error) {
         contract = null;
     }
+    getMintedValue();
     const mint = async () => {
         if (contract) {
             setDisabled(true);
-            console.log(ethers.utils.parseUnits((0.06 * count).toString(), 18));
-            let buffer = await contract._Mint(count, {
-                value: ethers.utils.parseUnits((0.06 * count).toString(), 18),
-                from: account,
-            });
+            let buffer = await contract
+                ._Mint(count, {
+                    value: ethers.utils.parseUnits((0.06 * count).toString(), 18),
+                    from: account,
+                })
+                .catch(() => {
+                    setDisabled(false);
+                });
             await buffer.wait();
             Store.addNotification({
                 title: "Mint",
@@ -70,16 +81,9 @@ const Mint = () => {
                     onScreen: true,
                 },
             });
+            setDisabled(false);
         }
     };
-
-    useEffect(() => {
-        if (contract) {
-            contract.totalSupply().then((val) => {
-                setMinted(val);
-            });
-        }
-    }, [contract]);
     useEffect(() => {}, [disabled]);
     return (
         <>
@@ -97,10 +101,10 @@ const Mint = () => {
                 >
                     <CardContent sx={{ textAlign: "center" }}>
                         <img src={logo} style={{ width: "100%" }} alt="logo" />
-                        <Typography variant="h5" component="div" sx={{ my: 2 }}>
+                        <Typography variant="h5" sx={{ my: 2 }}>
                             {minted} / 7983 Minted
                         </Typography>
-                        <Typography variant="h4" component="div" sx={{ mb: 2 }}>
+                        <Typography variant="h4" sx={{ mb: 2 }}>
                             PRESALE MAX <b>= 3</b>
                         </Typography>
                         <Box>
