@@ -17,11 +17,14 @@ import { Box, Card, CardContent, Typography, IconButton, Button } from "@mui/mat
 const Mint = () => {
     const [count, setCount] = useState(1);
     const [disabled, setDisabled] = useState(false);
+    const [price, setPrice] = useState(0.06);
+    const [limit, setLimit] = useState(3);
+    const [minted, setMinted] = useState(0);
     const decNum = () => {
         if (count > 1) setCount(count - 1);
     };
     const incNum = () => {
-        if (count < 3) setCount(count + 1);
+        if (count < limit) setCount(count + 1);
     };
     const { account, library } = useWeb3React();
     let contract;
@@ -34,7 +37,7 @@ const Mint = () => {
         if (contract) {
             setDisabled(true);
             let buffer = await contract._Mint(count, {
-                value: ethers.utils.parseUnits((0.06 * count).toString(), 18),
+                value: ethers.utils.parseUnits((price * count).toString(), 18),
                 from: account,
             });
             await buffer.wait();
@@ -69,7 +72,14 @@ const Mint = () => {
         }
     };
 
-    useEffect(() => {}, [account, library, disabled]);
+    useEffect(() => {
+        if (contract) {
+            let buffer = contract.totalSupply().then((val) => {
+                setMinted(val);
+            });
+            buffer.wait();
+        }
+    }, [account, library, disabled]);
     return (
         <>
             <ReactNotifications />
@@ -87,7 +97,7 @@ const Mint = () => {
                     <CardContent sx={{ textAlign: "center" }}>
                         <img src={logo} style={{ width: "100%" }} />
                         <Typography variant="h5" component="div" sx={{ my: 2 }}>
-                            100 / 7983 Minted
+                            {minted} / 7983 Minted
                         </Typography>
                         <Typography variant="h4" component="div" sx={{ mb: 2 }}>
                             PRESALE MAX <b>= 3</b>
@@ -133,7 +143,13 @@ const Mint = () => {
                             disabled={disabled}
                             variant="contained"
                             size="large"
-                            sx={{ mt: 5, backgroundColor: "white", color: "#22272d", fontWeight: "bold" }}
+                            sx={{
+                                mt: 5,
+                                backgroundColor: "white",
+                                color: "#22272d",
+                                fontWeight: "bold",
+                                "&:hover": { backgroundColor: "#4d5f6b", color: "white" },
+                            }}
                         >
                             MINT NOW
                         </Button>
