@@ -22,12 +22,12 @@ let walletconnect, injected, bsc;
 //     chaindecimals: 18,
 // };
 const net = {
-    chaind: 56,
-    rpcurl: "https://bsc-dataseed1.ninicoin.io",
-    blockurl: "https://bscscan.com/",
-    chainname: "Binance Smart Chain Mainnet",
-    chainnetname: "Binance Smart Chain Mainnet",
-    chainsymbol: "BNB",
+    chaind: 4,
+    rpcurl: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+    blockurl: "https://rinkey.etherscan.io",
+    chainname: "Ethereum Rinkeby Testnet",
+    chainnetname: "Ethereum Rinkeby Testnet",
+    chainsymbol: "ETH",
     chaindecimals: 18,
 };
 

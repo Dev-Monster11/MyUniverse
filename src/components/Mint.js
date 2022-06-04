@@ -15,6 +15,7 @@ import { Store } from "react-notifications-component";
 import { Box, Card, CardContent, Typography, IconButton, Button } from "@mui/material";
 
 const Mint = () => {
+    const { account, library } = useWeb3React();
     const [count, setCount] = useState(1);
     const [disabled, setDisabled] = useState(false);
     const [price, setPrice] = useState(0.06);
@@ -26,7 +27,6 @@ const Mint = () => {
     const incNum = () => {
         if (count < limit) setCount(count + 1);
     };
-    const { account, library } = useWeb3React();
     let contract;
     try {
         contract = GetContract("0x29e95b69011875f2f096b4e89a163885b793309d", abi);
@@ -36,8 +36,9 @@ const Mint = () => {
     const mint = async () => {
         if (contract) {
             setDisabled(true);
+            console.log(ethers.utils.parseUnits((0.06 * count).toString(), 18));
             let buffer = await contract._Mint(count, {
-                value: ethers.utils.parseUnits((price * count).toString(), 18),
+                value: ethers.utils.parseUnits((0.06 * count).toString(), 18),
                 from: account,
             });
             await buffer.wait();
@@ -74,12 +75,12 @@ const Mint = () => {
 
     useEffect(() => {
         if (contract) {
-            let buffer = contract.totalSupply().then((val) => {
+            contract.totalSupply().then((val) => {
                 setMinted(val);
             });
-            buffer.wait();
         }
-    }, [account, library, disabled]);
+    }, [contract]);
+    useEffect(() => {}, [disabled]);
     return (
         <>
             <ReactNotifications />
@@ -95,7 +96,7 @@ const Mint = () => {
                     }}
                 >
                     <CardContent sx={{ textAlign: "center" }}>
-                        <img src={logo} style={{ width: "100%" }} />
+                        <img src={logo} style={{ width: "100%" }} alt="logo" />
                         <Typography variant="h5" component="div" sx={{ my: 2 }}>
                             {minted} / 7983 Minted
                         </Typography>
