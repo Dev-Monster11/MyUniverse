@@ -104,10 +104,10 @@ const Mint = () => {
                         <Typography variant="h5" sx={{ my: 2 }}>
                             {minted} / 7983 Minted
                         </Typography>
-                        <Typography variant="h4" sx={{ mb: 2 }}>
+                        <Typography variant={{ sm: "h4", xs: "h5" }}>
                             PRESALE MAX <b>= 3</b>
                         </Typography>
-                        <Box>
+                        <Box sx={{ mt: 2 }}>
                             <IconButton
                                 component="span"
                                 onClick={() => {
