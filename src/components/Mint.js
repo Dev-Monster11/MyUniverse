@@ -104,7 +104,7 @@ const Mint = () => {
                         <Typography variant="h5" sx={{ my: 2 }}>
                             {minted} / 7983 Minted
                         </Typography>
-                        <Typography variant={{ sm: "h4", xs: "h5" }}>
+                        <Typography sx={{ fontSize: { sm: "2rem", xs: "1rem" } }}>
                             PRESALE MAX <b>= 3</b>
                         </Typography>
                         <Box sx={{ mt: 2 }}>
