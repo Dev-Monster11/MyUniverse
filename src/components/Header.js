@@ -12,6 +12,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 export default function Header() {
     return (
         <Toolbar sx={{ justifyContent: "space-between" }}>
+            <Box component="img" src={logo} sx={{ display: { sm: "block", xs: "none" } }} alt="logo" />
             <Box sx={{ display: "flex" }}>
                 <Box
                     className="links"
@@ -71,7 +72,6 @@ export default function Header() {
                 </Box> */}
                 <Account />
             </Box>
-            <Box component="img" src={logo} sx={{ display: { sm: "block", xs: "none" } }} alt="logo" />
         </Toolbar>
     );
 }
