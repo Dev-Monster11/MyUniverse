@@ -88,7 +88,7 @@ const Mint = () => {
     return (
         <>
             <ReactNotifications />
-            <Box sx={{ height: "calc(100vh - 200px)", m: "auto", display: "flex", justifyContent: "center" }}>
+            <Box sx={{ height: "calc(100vh - 200px)", m: "auto", display: "flex", justifyContent: "center", p: "24px" }}>
                 <Card
                     sx={{
                         width: { sm: "500px", xs: "300px" },

@@ -5,13 +5,14 @@ body {
     background-image: url("./assets/images/background.jpg");
     color: white;
     background-size: cover;
+    margin: 0;
 }
 .MuiButton-root.MuiButton-contained.Mui-disabled  {
     background-color:white !important;
 }
 .links{
     background-color: #4d5f6b;
-    margin-right: 5px;
+    margin: 10px 2px;
     border-radius: 50%;
     height: 35px;
     width: 35px;
@@ -19,4 +20,18 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+@media (min-width: 600px){
+    .links{
+        margin: 10px 5px;
+    }
+     
+}
+footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    justify-content: center;
+    display: flex;
+    background-color: #0c151e;
 }
