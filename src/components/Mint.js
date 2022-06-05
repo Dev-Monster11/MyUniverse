@@ -100,7 +100,7 @@ const Mint = () => {
                     }}
                 >
                     <CardContent sx={{ textAlign: "center" }}>
-                        <img src={logo} style={{ width: "100%" }} alt="logo" />
+                        <Box component="img" src={logo} sx={{ width: "100%" }} alt="logo" />
                         <Typography variant="h5" sx={{ my: 2 }}>
                             {minted} / 7983 Minted
                         </Typography>

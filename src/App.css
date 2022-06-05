@@ -9,3 +9,14 @@ body {
 .MuiButton-root.MuiButton-contained.Mui-disabled  {
     background-color:white !important;
 }
+.links{
+    background-color: #4d5f6b;
+    margin-right: 5px;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
