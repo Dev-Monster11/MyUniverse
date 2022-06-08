@@ -24,7 +24,7 @@ export default function Footer() {
                 <Box
                     className="links"
                     onClick={() => {
-                        window.open("https://t.me/softdrink1991", "_blank");
+                        window.open("https://t.me/myuniverseglobal", "_blank");
                     }}
                 >
                     <TelegramIcon fontSize="medium" />
