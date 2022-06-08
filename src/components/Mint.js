@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { GetContract } from "../helpers/Contract";
 import abi from "../helpers/contract.json";

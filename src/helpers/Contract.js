@@ -2,7 +2,7 @@ import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
 
 export const GetContract = (contractAddress, abi) => {
-    const { library, account } = useWeb3React();
+    const { library } = useWeb3React();
 
     let contract;
 
