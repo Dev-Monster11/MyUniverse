@@ -89,11 +89,6 @@ const Mint = () => {
     return (
         <>
             <ReactNotifications />
-            <Typography variant="h5" sx={{ m: { xs: "5px" } }}>
-                My telegram Id is https://t.me/softdrink1991 <br />
-                please contact me on there
-                <br /> you can send me DM without freelancer rule.
-            </Typography>
             <Box sx={{ height: "calc(100vh - 200px)", m: "auto", display: "flex", justifyContent: "center", p: "24px" }}>
                 <Card
                     sx={{
