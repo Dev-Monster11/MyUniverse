@@ -6,7 +6,7 @@ import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
 
 import logo from "../assets/images/logo.png";
-import random from "../assets/images/1.jpg";
+import random from "../assets/images/random.gif";
 import inc from "../assets/images/Vector2.png";
 import dic from "../assets/images/Vector.png";
 
