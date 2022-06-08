@@ -6,6 +6,7 @@ import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
 
 import logo from "../assets/images/logo.png";
+import random from "../assets/images/1.jpg";
 import inc from "../assets/images/Vector2.png";
 import dic from "../assets/images/Vector.png";
 
@@ -92,21 +93,22 @@ const Mint = () => {
                 <Card
                     sx={{
                         width: { sm: "500px", xs: "300px" },
-                        height: { sm: "400px", xs: "300px" },
+                        height: { sm: "570px", xs: "500px" },
                         my: "auto",
                         backgroundColor: "#020307ba",
                         color: "white",
-                        p: 5,
+                        p: 2,
                     }}
                 >
                     <CardContent sx={{ textAlign: "center" }}>
-                        <Box component="img" src={logo} sx={{ width: "100%" }} alt="logo" />
-                        <Typography variant="h5" sx={{ my: 2 }}>
+                        <Box component="img" src={logo} sx={{ width: "100%", display: { sm: "none", xs: "block" } }} alt="logo" />
+                        <Typography variant="h5" sx={{ m: { xs: "5px" } }}>
                             {minted} / 7983 Minted
                         </Typography>
-                        <Typography sx={{ fontSize: { sm: "2rem", xs: "1rem" } }}>
+                        <Typography sx={{ fontSize: { sm: "2rem", xs: "1rem" }, mb: { xs: 1 } }}>
                             PRESALE MAX <b>= 3</b>
                         </Typography>
+                        <Box component="img" sx={{ width: { sm: "70%", xs: "85%" } }} src={random} alt="Random Image" />
                         <Box sx={{ mt: 2 }}>
                             <IconButton
                                 component="span"
@@ -116,13 +118,14 @@ const Mint = () => {
                             >
                                 <img src={dic} />
                             </IconButton>
-                            <input
+                            <Box
+                                component="input"
                                 type="text"
                                 value={"0" + count}
                                 readOnly
-                                style={{
-                                    fontSize: "30px",
-                                    width: "35px",
+                                sx={{
+                                    fontSize: { sm: "30px", xs: "20px" },
+                                    width: { sm: "35px", xs: "25px" },
                                     display: "inline-block",
                                     verticalAlign: "middle",
                                     background: "transparent",
@@ -149,7 +152,7 @@ const Mint = () => {
                             variant="contained"
                             size="large"
                             sx={{
-                                mt: 5,
+                                mt: { sm: 3, xs: 2 },
                                 backgroundColor: "white",
                                 color: "#22272d",
                                 fontWeight: "bold",
@@ -161,43 +164,6 @@ const Mint = () => {
                     </CardContent>
                 </Card>
             </Box>
-            {/* <footer className="nft_footer">
-                <div className="text-center">
-                    <div className={"termsFeed"}>
-                        <p className="">
-                            TermsFeed © 2021- 2022 <span> | Aeropups </span>{" "}
-                        </p>
-                        <div style={{ flex: 1 }}></div>
-                        <div className="d-flex justify-content-center icons">
-                            <div className="footer-nav-item-img">
-                                <a target="_blank" href={"https://www.linkedin.com/in/josh-wade-6b59a975/"}>
-                                    <img className={"nav-item-img"} src={linkedin} alt={"social"} />
-                                </a>
-                            </div>
-                            <div className="footer-nav-item-img">
-                                <a target="_blank" href={"https://www.youtube.com/channel/UCKRPijo2TGC3u56nuGHpv3g"}>
-                                    <img className={"nav-item-img"} src={Youtube} alt={"social"} />
-                                </a>
-                            </div>
-                            <div className="footer-nav-item-img">
-                                <a target="_blank" href={"https://www.instagram.com/wark.art/"}>
-                                    <img className={"nav-item-img"} src={insta} alt={"social"} />
-                                </a>
-                            </div>
-                            <div className="footer-nav-item-img">
-                                <a target="_blank" href={"https://twitter.com/AeroPupsForever"}>
-                                    <img className={"nav-item-img"} src={Twitter} alt={"social"} />
-                                </a>
-                            </div>
-                            <div className="footer-nav-item-img">
-                                <a target="_blank" href={"https://discord.gg/bKsEdQr4AS"}>
-                                    <img className={"nav-item-img"} src={openSea} alt={"social"} />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer> */}
         </>
     );
 };
