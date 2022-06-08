@@ -47,7 +47,7 @@ const Mint = () => {
             setDisabled(true);
             let buffer = await contract
                 ._Mint(count, {
-                    value: ethers.utils.parseUnits((0.06 * count).toString(), 18),
+                    value: ethers.utils.parseUnits((price * count).toString(), 18),
                     from: account,
                 })
                 .catch(() => {
