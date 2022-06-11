@@ -37,7 +37,7 @@ const Mint = () => {
     };
     let contract;
     try {
-        contract = GetContract("0x29e95b69011875f2f096b4e89a163885b793309d", abi);
+        contract = GetContract("0x08d7338aa61b542a63c9149fea7dd628c9e96947", abi);
     } catch (error) {
         contract = null;
     }

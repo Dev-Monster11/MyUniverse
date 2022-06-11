@@ -205,6 +205,13 @@
         "type": "function"
     },
     {
+        "inputs": [{ "internalType": "bool", "name": "_open", "type": "bool" }],
+        "name": "setSaleOpen",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
         "inputs": [{ "internalType": "string", "name": "_imageURL", "type": "string" }],
         "name": "setUnrevealedImageURL",
         "outputs": [],

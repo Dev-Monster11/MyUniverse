@@ -12,24 +12,24 @@ import Web3 from "web3";
 let provider = null;
 let walletconnect, injected, bsc;
 
-// const net = {
-//     chaind: 97,
-//     rpcurl: "https://data-seed-prebsc-1-s1.binance.org:8545/",
-//     blockurl: "https://testnet.bscscan.com/",
-//     chainname: "Binance Smart Chain - Testnet",
-//     chainnetname: "BNB",
-//     chainsymbol: "BNB",
-//     chaindecimals: 18,
-// };
 const net = {
-    chaind: 4,
-    rpcurl: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-    blockurl: "https://rinkey.etherscan.io",
-    chainname: "Ethereum Rinkeby Testnet",
-    chainnetname: "Ethereum Rinkeby Testnet",
+    chaind: 1,
+    rpcurl: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+    blockurl: "https://etherscan.io",
+    chainname: "Ethereum Mainnet",
+    chainnetname: "Ethereum Mainnet",
     chainsymbol: "ETH",
     chaindecimals: 18,
 };
+// const net = {
+//     chaind: 4,
+//     rpcurl: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+//     blockurl: "https://rinkey.etherscan.io",
+//     chainname: "Ethereum Rinkeby Testnet",
+//     chainnetname: "Ethereum Rinkeby Testnet",
+//     chainsymbol: "ETH",
+//     chaindecimals: 18,
+// };
 
 const defaultethereumconflag = {
     testing: false,
